@@ -3,7 +3,8 @@
 import sys
 from PyQt5.QtCore import Qt, QTime, QTimer
 from PyQt5.QtWidgets import (QApplication, QWidget, QLabel,
-                             QPushButton, QDesktopWidget)
+                             QPushButton, QDesktopWidget, QVBoxLayout,
+                             QHBoxLayout)
 from PyQt5.QtGui import QIcon
 
 class Stopwatch(QWidget):
@@ -21,6 +22,23 @@ class Stopwatch(QWidget):
     self.setWindowTitle("Stopwatch")
     self.resize(300, 200)
     self.setWindowIcon(QIcon("clock.jpg"))
+    
+    vbox = QVBoxLayout()
+    vbox.addWidget((self.time_label))
+    vbox.addWidget((self.start_button))
+    vbox.addWidget((self.stop_button))
+    vbox.addWidget((self.reset_button))
+    
+    self.setLayout(vbox)
+    
+    self.time_label.setAlignment(Qt.AlignCenter)
+    
+    hbox = QHBoxLayout()
+    hbox.addWidget((self.start_button))
+    hbox.addWidget((self.stop_button))
+    hbox.addWidget((self.reset_button))
+    
+    vbox.addLayout(hbox)
     
     self.center()
   
