@@ -56,6 +56,11 @@ class Stopwatch(QWidget):
     }
     """)
     
+    self.start_button.clicked.connect(self.start)
+    self.stop_button.clicked.connect(self.stop)
+    self.reset_button.clicked.connect(self.reset)
+    self.timer.timeout.connect(self.update_display)
+    
     self.center()
   
   def start(self):
@@ -65,6 +70,9 @@ class Stopwatch(QWidget):
     pass
   
   def reset(self):
+    pass
+  
+  def update_display(self):
     pass
   
   def center(self):
