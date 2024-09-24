@@ -3,7 +3,8 @@
 import sys
 from PyQt5.QtCore import Qt, QTime, QTimer
 from PyQt5.QtWidgets import (QApplication, QWidget, QLabel,
-                             QPushButton)
+                             QPushButton, QDesktopWidget)
+from PyQt5.QtGui import QIcon
 
 class Stopwatch(QWidget):
   def __init__(self):
@@ -17,7 +18,11 @@ class Stopwatch(QWidget):
     self.initUI()
     
   def initUI(self):
-    pass
+    self.setWindowTitle("Stopwatch")
+    self.resize(300, 200)
+    self.setWindowIcon(QIcon("clock.jpg"))
+    
+    self.center()
   
   def start(self):
     pass
@@ -27,6 +32,11 @@ class Stopwatch(QWidget):
   
   def reset(self):
     pass
+  
+  def center(self):
+    screen = QDesktopWidget().availableGeometry().center()
+    frame = self.frameGeometry()
+    frame.moveCenter(screen)
   
 def main():
   app = QApplication(sys.argv)
