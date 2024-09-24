@@ -1,12 +1,19 @@
 #PyQt5 Stopwatch
 
 import sys
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtCore import Qt, QTime
+from PyQt5.QtWidgets import (QApplication, QWidget, QLabel,
+                             QPushButton)
 
 class Stopwatch(QWidget):
   def __init__(self):
     super().__init__()
+    self.time = QTime(0, 0, 0, 0)
+    self.time_label = QLabel("00:00:00:00", self)
+    self.start_button = QPushButton("Start", self)
+    self.stop_button = QPushButton("Stop", self)
+    self.reset_button = QPushButton("Reset", self)
+  
   
 
 def main():
