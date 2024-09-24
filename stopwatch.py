@@ -64,13 +64,20 @@ class Stopwatch(QWidget):
     self.center()
   
   def start(self):
-    pass
+    self.timer.start(10)
   
   def stop(self):
-    pass
+    self.timer.stop()
   
   def reset(self):
     pass
+  
+  def format_time(self, time):
+    hours = time.hour()
+    minutes = time.minute()
+    seconds = time.seconds()
+    milliseconds = time.msec()
+    return f"{hours:02}:{minutes:02}:{seconds:02}.{milliseconds:02}"
   
   def update_display(self):
     pass
