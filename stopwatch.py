@@ -70,7 +70,9 @@ class Stopwatch(QWidget):
     self.timer.stop()
   
   def reset(self):
-    pass
+    self.timer.stop()
+    self.time = QTime(0, 0, 0, 0)
+    self.time_label.setText(self.format_time(self.time))
   
   def format_time(self, time):
     hours = time.hour()
